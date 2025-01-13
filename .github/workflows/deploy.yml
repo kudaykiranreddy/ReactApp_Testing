@@ -23,16 +23,16 @@ jobs:
     # Step 3: Navigate to the React app directory and install dependencies
     - name: Install dependencies
       run: npm install
-      working-directory: ReactApp_Testing/To_do_app
+      working-directory: To_do_app
 
     # Step 4: Build the React app
     - name: Build the app
       run: npm run build
-      working-directory: ReactApp_Testing/To_do_app
+      working-directory: To_do_app
 
     # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.TOKEN }}
-        publish_dir: ReactApp_Testing/To_do_app/build
+        publish_dir: To_do_app/build
