@@ -1,37 +1,38 @@
-name: Deploy React app to GitHub Pages
+name: Deploy React App
 
 on:
   push:
     branches:
-      - main # Trigger deploy on push to master branch
+      - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      # Checkout the code from the repository
-      - name: Checkout code
-        uses: actions/checkout@v2
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
 
-      # Install dependencies
-      - name: Install dependencies
-        run: npm install
+    # Step 3: Navigate to the React app directory and install dependencies
+    - name: Install dependencies
+      run: npm install
+      working-directory: ReactApp_Testing/To_do_app
 
-      # Build the app
-      - name: Build the app
-        run: npm run build
+    # Step 4: Build the React app
+    - name: Build the app
+      run: npm run build
+      working-directory: ReactApp_Testing/To_do_app
 
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build  # This is where the build files are located
-          publish_branch: gh-pages  # The branch where the app will be deployed
+    # Step 5: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.TOKEN }}
+        publish_dir: ReactApp_Testing/To_do_app/build
