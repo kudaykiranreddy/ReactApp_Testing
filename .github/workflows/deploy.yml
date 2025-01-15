@@ -33,8 +33,8 @@ jobs:
         run: npm ci
         working-directory: To_do_app
       - name: Run test job
-	run: npm test
-	working-directory: To_do_app
+        run: npm test
+        working-directory: To_do_app
 
       # Step 4: Build the app with verbose logging
       - name: Build the app
