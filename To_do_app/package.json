@@ -2,15 +2,13 @@
   "name": "to-do-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kudaykiranreddy.github.io/ReactApp_Testing/",
+  "homepage": "https://radiant-paprenjak-928dd4.netlify.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.3.1",
