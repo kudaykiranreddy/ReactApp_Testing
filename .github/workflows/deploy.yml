@@ -52,5 +52,6 @@ jobs:
         with:
           publish-dir: To_do_app/dist # Path to the dist directory
           production-deploy: true
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
